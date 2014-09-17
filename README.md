@@ -1,4 +1,4 @@
-Python Leafly
+python-leafly
 =============
 
 [Leafly API Documentation](https://developer.leafly.com/docs)
