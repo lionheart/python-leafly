@@ -84,7 +84,7 @@ for dispensary in response:
 ### Dispensary Search
 
 ```python
-response = leafly.locations(take=10, page=0, latitude=47.606, lon=-122.333, hasedibles=True)
+response = leafly.locations(take=10, page=0, latitude=47.606, longitude=-122.333, hasedibles=True)
 for dispensary in response['stores']:
     print dispensary['name']
 ```
