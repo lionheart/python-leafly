@@ -1,5 +1,5 @@
 
-"API Documentation":https://developer.leafly.com/docs
+`API Documentation <https://developer.leafly.com/docs>`_
 
 .. code:: python
 
