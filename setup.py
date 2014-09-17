@@ -12,7 +12,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-with open(os.path.join(os.path.dirname(__file__), "README.rst")) as file:
+with open(os.path.join(os.path.dirname(__file__), "README.md")) as file:
     long_description = file.read()
 
 classifiers = [
@@ -54,6 +54,7 @@ setup(
     author=metadata.__author__,
     author_email=metadata.__email__,
     packages=['leafly'],
+    install_requires=["requests>=2.0.0"],
     package_data={'': ['LICENSE', 'README.rst']},
     cmdclass={'test': TestCommand},
 )
