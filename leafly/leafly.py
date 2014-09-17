@@ -62,7 +62,7 @@ class LeaflyCall(object):
             'app_key': self.key
         }
 
-        kwargs = {
+        new_kwargs = {
             'headers': headers
         }
 
@@ -70,16 +70,16 @@ class LeaflyCall(object):
             fun = requests.post
             page = kwargs.get('page', 0)
             take = kwargs.get('take', 10)
-            kwargs['data'] = json.dumps({
+            new_kwargs['data'] = json.dumps({
                 'Page': page,
                 'Take': take
             })
         elif self.components == ["locations"]:
             fun = requests.post
-            kwargs['data'] = params
+            new_kwargs['data'] = params
         else:
             fun = requests.get
 
-        response = fun(url, **kwargs)
+        response = fun(url, **new_kwargs)
         return response.json()
 
