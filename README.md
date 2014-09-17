@@ -9,7 +9,6 @@ Installation
 python-leafly is available for download through the Python Package Index (PyPi). You can install it right away using pip or easy_install.
 
 ```
-pip install requests
 pip install leafly
 ```
 
