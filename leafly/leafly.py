@@ -5,8 +5,11 @@ import logging
 import requests
 import exceptions
 import pprint
+import simplejson
 
 LEAFLY_API_ENDPOINT = "http://data.leafly.com/"
+
+logger = logging.getLogger(__name__)
 
 class Leafly(object):
     BOOLEAN_FIELDS = [
@@ -40,7 +43,7 @@ class LeaflyCall(object):
         return self
 
     def __getitem__(self, k):
-        self.components.append(k)
+        self.components.append(str(k))
         return self
 
     def __call__(self, *args, **kwargs):
@@ -68,18 +71,20 @@ class LeaflyCall(object):
 
         if self.components == ["strains"]:
             fun = requests.post
-            page = kwargs.get('page', 0)
-            take = kwargs.get('take', 10)
-            new_kwargs['data'] = json.dumps({
-                'Page': page,
-                'Take': take
-            })
+            new_kwargs['data'] = json.dumps(params)
         elif self.components == ["locations"]:
             fun = requests.post
             new_kwargs['data'] = params
         else:
             fun = requests.get
+            new_kwargs['data'] = params
 
         response = fun(url, **new_kwargs)
+
+        logger.debug(url)
         return response.json()
+
+if __name__ == "__main__":
+    import sys
+    leafly = Leafly(*sys.argv[1:])
 
