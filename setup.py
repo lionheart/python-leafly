@@ -55,7 +55,7 @@ setup(
     author_email=metadata.__email__,
     packages=['leafly'],
     install_requires=["requests>=2.0.0"],
-    package_data={'': ['LICENSE', 'README.rst']},
+    package_data={'': ['LICENSE', 'README.md']},
     cmdclass={'test': TestCommand},
 )
 
