@@ -5,7 +5,6 @@ import logging
 import requests
 import exceptions
 import pprint
-import simplejson
 
 LEAFLY_API_ENDPOINT = "http://data.leafly.com/"
 
